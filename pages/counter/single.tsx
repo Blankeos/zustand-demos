@@ -11,7 +11,8 @@ const Single = () => {
   useEffect(() => {
     console.log(count);
   }, [count]);
-  const hasMounted = useHasMounted();
+
+  const hasMounted = useCounterStore((state) => state._hasMounted);
 
   return (
     <>
@@ -26,7 +27,7 @@ const Single = () => {
           <hr className="" />
         </div>
         <div className="grid place-items-center h-52">
-          <h1 className="text-3xl font-bold">{hasMounted ? count : " "}</h1>
+          <h1 className="text-3xl font-bold">{count}</h1>
           <div className="flex gap-x-5 mt-5">
             <button
               className="px-4 py-2 hover:bg-gray-100 rounded-md text-gray-700"

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useCounterStore } from "./counterStore";
 
+// OBSOLETE just use 'devtools' from '/zustand/middlewares'
 // Connect to Redux DevTools Extension
 const useReduxDevTools = () => {
   useEffect(() => {

@@ -10,7 +10,7 @@ const IncrementBy = () => {
   const count = useCounterStore((state) => state.count);
   const increase = useCounterStore((state) => state.increase);
   const decrease = useCounterStore((state) => state.decrease);
-  const hasMounted = useHasMounted();
+  const hasMounted = useCounterStore((state) => state._hasMounted);
   return (
     <>
       <Layout>
@@ -24,7 +24,7 @@ const IncrementBy = () => {
           <hr className="" />
         </div>
         <div className="grid place-items-center h-52">
-          <h1 className="text-3xl font-bold">{hasMounted && count}</h1>
+          <h1 className="text-3xl font-bold">{count}</h1>
           <div className="flex gap-x-5 mt-5">
             <input
               className="border rounded-md w-10 p-1"

@@ -1,9 +1,9 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import useReduxDevTools from "../stores/useReduxDevTools";
+import useStartPersistentStores from "../stores/useStartPersistentStores";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // useReduxDevTools();
+  useStartPersistentStores();
   return <Component {...pageProps} />;
 }
 
