@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex">
+    <div className="min-h-screen overflow-hidden flex">
       <Nav />
       <main className="flex-grow">{children}</main>
     </div>
