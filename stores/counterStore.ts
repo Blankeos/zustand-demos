@@ -1,4 +1,4 @@
-import create, { GetState, SetState, StateCreator, StoreApi } from "zustand";
+import create, { SetState } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 interface IState {
@@ -8,7 +8,7 @@ interface IState {
 }
 const store = (set: SetState<IState>) => ({
   // States
-  count: 1,
+  count: 0,
   // Actions
   increase: (by: number) =>
     set((state: IState) => ({ count: state.count + by })),
@@ -16,4 +16,6 @@ const store = (set: SetState<IState>) => ({
     set((state: IState) => ({ count: state.count - by })),
 });
 
-export const useCounterStore = create(devtools(persist(store)));
+export const useCounterStore = create(
+  devtools(persist(store, { name: "counter_store" }))
+);

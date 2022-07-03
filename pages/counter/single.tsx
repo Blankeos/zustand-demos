@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
+import useHasMounted from "../../hooks/hasMounted";
 import { useCounterStore } from "../../stores/counterStore";
 
 const Single = () => {
@@ -7,6 +8,12 @@ const Single = () => {
   const increase = useCounterStore((state) => state.increase);
   const decrease = useCounterStore((state) => state.decrease);
 
+  useEffect(() => {
+    console.log(count);
+  }, [count]);
+  const hasMounted = useHasMounted();
+
+  if (!hasMounted) return "Loading...";
   return (
     <>
       <Layout>
