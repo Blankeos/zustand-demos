@@ -4,7 +4,7 @@ import { useCounterStore } from "./counterStore";
 // Connect to Redux DevTools Extension
 const useReduxDevTools = () => {
   useEffect(() => {
-    const connection = window.__REDUX_DEVTOOLS_EXTENSION__?.connect({
+    const connection = (window as any).__REDUX_DEVTOOLS_EXTENSION__?.connect({
       name: "Counter Store",
     });
     connection?.init(useCounterStore.getState());
@@ -12,8 +12,6 @@ const useReduxDevTools = () => {
       connection?.send("State", newState);
     });
   }, []);
-
-  return [1, 1];
 };
 
 export default useReduxDevTools;
