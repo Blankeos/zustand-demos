@@ -1,10 +1,13 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import useStartPersistentStores from "../stores/useStartPersistentStores";
+import CounterStoreProvider from "../stores/CounterStoreProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useStartPersistentStores();
-  return <Component {...pageProps} />;
+  return (
+    <CounterStoreProvider>
+      <Component {...pageProps} />
+    </CounterStoreProvider>
+  );
 }
 
 export default MyApp;

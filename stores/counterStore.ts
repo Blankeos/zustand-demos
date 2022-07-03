@@ -3,8 +3,6 @@ import create, { SetState } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 interface IState {
-  // States
-  _hasMounted: boolean;
   count: number;
   // No Need to include actions
 }
@@ -17,8 +15,6 @@ const store = (set: SetState<IState>) => ({
     set((state: IState) => ({ ...state, count: state.count + by })),
   decrease: (by: number) =>
     set((state: IState) => ({ ...state, count: state.count - by })),
-  setHasMounted: (bool: boolean) =>
-    set((state: IState) => ({ ...state, _hasMounted: bool })),
 });
 
 export const useCounterStore = create(

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
-import useHasMounted from "../../hooks/hasMounted";
 import { useCounterStore } from "../../stores/counterStore";
+import { useCounterStoreContext } from "../../stores/CounterStoreProvider";
 
 const Single = () => {
   const count = useCounterStore((state) => state.count);
@@ -12,7 +12,7 @@ const Single = () => {
     console.log(count);
   }, [count]);
 
-  const hasMounted = useCounterStore((state) => state._hasMounted);
+  const { hasMounted } = useCounterStoreContext();
 
   return (
     <>
@@ -27,7 +27,7 @@ const Single = () => {
           <hr className="" />
         </div>
         <div className="grid place-items-center h-52">
-          <h1 className="text-3xl font-bold">{count}</h1>
+          <h1 className="text-3xl font-bold">{hasMounted && count}</h1>
           <div className="flex gap-x-5 mt-5">
             <button
               className="px-4 py-2 hover:bg-gray-100 rounded-md text-gray-700"
