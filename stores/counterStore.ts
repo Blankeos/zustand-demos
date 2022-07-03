@@ -1,5 +1,5 @@
-import create, { StateCreator } from "zustand";
-import { devtools } from "zustand/middleware";
+import create, { GetState, SetState, StateCreator, StoreApi } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 
 interface State {
   // States
