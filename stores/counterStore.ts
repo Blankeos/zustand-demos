@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import create, { SetState } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { devtools, persist } from "zustand/middleware"; // to connect to dev tools
 
 interface IState {
   count: number;
