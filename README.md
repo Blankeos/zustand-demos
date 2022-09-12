@@ -1,5 +1,7 @@
 # 🐻 Zustand Demos
 
+> ⚠️ I have an outdated implementation of Zustand here.
+
 My practice repository for the Zustand library--the bear necessities for complex state management.
 
 You can find some examples of how to use **Zustand** with **Typescript** here.
